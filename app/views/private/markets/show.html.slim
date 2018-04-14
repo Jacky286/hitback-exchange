@@ -4,6 +4,9 @@ html lang="en"
     link href="https://s3-us-west-2.amazonaws.com/hitback/favicon.ico" rel="shortcut icon"
     = include_gon
     = stylesheet_link_tag 'market', media: "all"
+    = javascript_include_tag "charting_library/charting_library.min"
+    = javascript_include_tag "datafeeds/udf/bundle"
+    = javascript_include_tag "datafeeds/udf/polyfills"
     = javascript_include_tag "market"
     = javascript_include_tag "locales/#{I18n.locale}"
     = render 'shared/html5'
@@ -23,9 +26,10 @@ html lang="en"
         = render partial: 'market_trades'
         = render partial: 'market_list'
 
-        = render partial: 'candlestick'
-        = render partial: 'range_switch'
-        = render partial: 'indicator_switch'
+        = render partial: 'tradingview'
+        / = render partial: 'candlestick'
+        / = render partial: 'range_switch'
+        / = render partial: 'indicator_switch'
 
         - if ENV['CHAT_FEATURE']
           #chat_tabs_wrapper.float
