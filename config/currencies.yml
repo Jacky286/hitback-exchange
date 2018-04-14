@@ -18,6 +18,7 @@
   coin: true
   quick_withdraw_max: 100
   rpc: http://hitback:5dfa6363287b606b7b863e0fe994234c@127.0.0.1:18332
+  # rpc: http://hitback:5dfa6363287b606b7b863e0fe994234c@127.0.0.1:18332  
   blockchain: https://blockchain.info/tx/#{txid}
   address_url: https://blockchain.info/address/#{address}
   assets:

@@ -2,8 +2,10 @@ development: &defaults
   adapter: mysql2
   encoding: utf8
   database: hitback_development
-  username: root
-  password: 5dfa6363287b606b7b863e0fe994234c
+  # username: root
+  # password: 5dfa6363287b606b7b863e0fe994234c
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASS'] %>
   pool: 10
   reconnect: true
 

@@ -1,15 +1,15 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.0.12'
+gem 'rails', '~> 4.2'
 gem 'rails-i18n'
 
-gem 'mysql2', '~> 0.3.20'
+gem 'mysql2', '~> 0.3.21'
 gem 'daemons-rails'
 gem 'redis-rails'
 
 
 gem 'rotp'
-gem 'json'
+gem 'json', '~> 2.1.0'
 gem 'jbuilder'
 gem 'bcrypt-ruby', '~> 3.1.2'
 
@@ -21,9 +21,9 @@ gem 'omniauth-weibo-oauth2', '~> 0.4.0'
 gem 'figaro'
 gem 'hashie'
 
-gem 'aasm', '~> 3.4.0'
+gem 'aasm', '~> 4.12'
 gem 'amqp', '~> 1.3.0'
-gem 'bunny', '~> 1.2.1'
+gem 'bunny', '~> 2.9.0 '
 gem 'cancancan'
 gem 'enumerize'
 gem 'datagrid'
