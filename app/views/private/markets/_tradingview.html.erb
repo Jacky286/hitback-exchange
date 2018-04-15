@@ -1,9 +1,20 @@
 
 <div id="candlestick">
-  <div id="tv_chart_container" style="height:100%;margin:0"></div>
+  <div id="tv_chart_container"></div>
 </div>
 
 <script>
+  function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+      results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+  }
+  function getLang(){
+    var lang = getParameterByName('lang');
+    if(lang == 'zh-CN') lang = 'zh';
+    return lang || 'en';
+  }
   TradingView.onready(function(){
     var widget = new TradingView.widget({
       // debug: true, //to see Library errors and warnings in the console
@@ -13,13 +24,13 @@
       container_id: "tv_chart_container",
       // BEWARE: no trailing slash is expected in feed URL
       // datafeed: new Datafeeds.UDFCompatibleDatafeed("https://demo_feed.tradingview.com"),
-      datafeed: new Datafeeds.UDFCompatibleDatafeed("http://gogowin.us-west-2.elasticbeanstalk.com"),      
+      datafeed: new Datafeeds.UDFCompatibleDatafeed("http://gogowin-yahoo.us-west-2.elasticbeanstalk.com"),      
       library_path: "charting_library/",
-      locale: "en",
-      //	Regression Trend-related functionality is not implemented yet, so it's hidden for a while
+      locale: getLang(),
+      // Regression Trend-related functionality is not implemented yet, so it's hidden for a while
       drawings_access: { type: 'black', tools: [ { name: "Regression Trend" } ] },
       disabled_features: ["use_localstorage_for_settings"],
-      preset: "mobile",
+      // preset: "mobile",
       overrides: {
         "paneProperties.background": "#222222",
         "paneProperties.vertGridProperties.color": "#454545",
